@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GraphicsController">
+   <children>
+      <AnchorPane prefHeight="274.0" prefWidth="452.0">
+         <children>
+            <ListView fx:id="ReservedList" layoutX="14.0" layoutY="52.0" prefHeight="200.0" prefWidth="200.0" />
+            <Label layoutX="90.0" layoutY="35.0" text="Reserved" />
+            <ListView fx:id="ParkedList" layoutX="239.0" layoutY="52.0" prefHeight="200.0" prefWidth="200.0" />
+            <Label layoutX="321.0" layoutY="35.0" text="Parked" />
+            <Label fx:id="recount" layoutX="111.0" layoutY="252.0" text="0" />
+            <Label fx:id="pcount" layoutX="336.0" layoutY="252.0" text="0" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

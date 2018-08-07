@@ -1,0 +1,87 @@
+<!doctype html>
+<!-- Written/Tested/Debugged By: HARSHIL PATEL -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Recurring Reservations</title>
+<h1> Here you can subsribe to our program! </h1>
+<link href="reservation.css" rel="stylesheet">
+</head>
+<body>
+
+<form action="recurring.php" method="post" id="subscriptions" target= "recurring.php">
+
+<fieldset>
+	<legend> Information: </legend>
+    
+    First Name:<br>
+    <input type="text" name="firstname" required>
+    <br><br>
+    Last Name:<br>
+    <input type="text" name="lastname" required>
+    <br><br>
+    License Plate:<br>
+    <input type="text" name="licenseplate" required>
+    
+    <br><br>
+   Start Time:<br>
+   <input type="text" name="starttime" pattern="([01]?[0-9]{1}|2[0-3]{1}):[0|3]{1}[0]{1}" id="24hs" required/> 24h-format
+ <br> <br>
+   End Time:<br>
+  <input type="text" name="endtime" pattern="([01]?[0-9]{1}|2[0-3]{1}):[0|3]{1}[0]{1}" id="24he" required/> 24h-format
+  <br> <br>
+  
+  Subscription Type: <br>
+  
+  <input type="radio" name="restype" value="daily" checked> Daily<br>
+   <input type="radio" name="restype" value="weekly"> Weekly<br>
+  <input type="radio" name="restype" value="monthly"> Monthly
+  
+  <br> <br>
+  
+  <input type="submit" value="Submit" onclick="alert('Your Reservation is being processed')">
+  <input type = "hidden" name = "submitted" value = "true" />
+  <br><br>
+  *Note: Reservations can only be made in 30 Minute Intervals
+  </fieldset>
+  
+</form> <script type="text/javascript"> 
+
+var subForm = document.forms["subscriptions"];
+var subPrices = new Array();
+subPrices["daily"] = 10;
+subPrices["weekly"] = 8;
+subPrices["monthly"] = 6;
+
+function getSubtypePrice()
+{
+	var subTypePrice = 0;
+	var subForm = document.forms["subscriptions"];
+	var selectedSub = subForm.elements["restype"];
+	
+	for(var i = 0; i < selectedSub.length; i++)
+	{
+		if(selectedSub[i].checked)
+		{
+			subTypePrice = subPrices[selectedSub[i].value];
+			break;
+		}
+	}
+	return subTypePrice;
+}
+
+var startTime = document.getElementsByName("starttime")[0].value;
+var endTime = document.getElementsByName("endtime")[0].value;
+
+var strStart = startTime.split(":");
+var strEnd = endTime.split(":");
+
+document.write(startTime);
+
+</script>
+
+
+
+
+</body>
+</html>
